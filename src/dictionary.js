@@ -128,4 +128,64 @@ module.exports = {
         category: 'killer',
         transform: (value) => value
     },
+    DBD_Chapter16_Camper_Stat1_float: {
+        name: 'Healing being the obsession',
+        key: 'healing_being_obsession',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_Chapter17_Camper_Stat2_float: {
+        name: 'Healing while the rest is injured',
+        key: 'healing_while_rest_is_injured',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_Chapter11_Camper_Stat1_float: {
+        name: 'Healed allies when injured',
+        key: 'healing_being_injured',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_DLC7_Camper_Stat2: {
+        name: 'Exit gates opened',
+        key: 'gates_opened',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_Camper8_Stat1: {
+        name: 'Damage generators repaired',
+        key: 'generators_broken_repaired',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_Camper8_Stat2: {
+        name: 'Vaults during chase',
+        key: 'vaults_done',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_DLC9_Camper_Stat1: {
+        name: 'Attacks evaded by vaulting',
+        key: 'vaults_attacks_evaded',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_Chapter19_Camper_Stat1: {
+        name: 'Escaped by stunning killer with pallet',
+        key: 'chase_escape_by_pallet',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_DLC7_Camper_Stat1: {
+        name: 'Chests opened',
+        key: 'chests_opened',
+        category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_Event1_Stat2: { // naming makes no sense whatsoever
+        name: 'Chests opened in the basement',
+        key: 'chests_opened_in_basement',
+        category: 'survivor',
+        transform: (value) => value
+    },
 }
