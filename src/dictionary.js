@@ -37,15 +37,21 @@ module.exports = {
         category: 'survivor',
         transform: (value) => value
     },
+    DBD_Escape: {
+        name: 'Escapes',
+        key: 'escapes',
+        category: 'survivor',
+        transform: (value) => value
+    },
     DBD_EscapeKO: {
         name: 'Escapes in dying state',
         key: 'escapes_in_dying_state',
         category: 'survivor',
         transform: (value) => value
     },
-    DBD_Escape: {
-        name: 'Escapes',
-        key: 'escapes',
+    DBD_EscapeThroughHatch: {
+        name: 'Escapes through the hatch',
+        key: 'escapes_through_hatch',
         category: 'survivor',
         transform: (value) => value
     },
@@ -65,6 +71,30 @@ module.exports = {
         name: 'Unhooks after the door is unlocked',
         key: 'unhooks_post_exit',
         category: 'survivor',
+        transform: (value) => value
+    },
+    DBD_BloodwebMaxLevel: {
+        name: 'Bloodweb Max Level',
+        key: 'bloodweb_max_level',
+        category: 'userinfo',
+        transform: (value) => value
+    },
+    DBD_BloodwebPoints: {
+        name: 'Total Bloodweb Points',
+        key: 'bloodweb_total_points_spended',
+        category: 'userinfo',
+        transform: (value) => value
+    },
+    DBD_MaxBloodwebPointsOneCategory: {
+        name: 'Max points spended in one category',
+        key: 'bloodweb_max_points_in_one_category',
+        category: 'userinfo',
+        transform: (value) => value
+    },
+    DBD_UnlockRanking: {
+        name: 'Peps Unlocked',
+        key: 'peps_unlocked',
+        category: 'userinfo',
         transform: (value) => value
     },
 }
