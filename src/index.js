@@ -24,16 +24,17 @@ const checkIfVanity = async (user) => {
 };
 
 const transformResponse = (response) => {
-    const result = {}
+    const result = []
     const keys = (response)
     for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
         const stat = STATS[key.name];
-        result[stat?.key || key.name] = {
+        result.push({
+            key: stat?.key || key.name,
             name: stat?.name || '',
             category: stat?.category || '',
             value: stat?.transform(key.value) || key.value,
-        }
+        })
     }
     return result;
 }
@@ -84,7 +85,39 @@ class API {
      * @returns Lifetime stats of the player
      */
     stats(){
-
+        const result = {}
+        const data  = this._raw.data.filter(x => x.category === 'userinfo');
+        for (let i = 0; i < data.length; i++) {
+            const item = data[i];
+            result[item.key] = item.value;
+        }
+        return result;
+    }
+    /**
+     * Killer Stats
+     * @returns Lifetime stats of the player
+     */
+     killer(){
+        const result = {}
+        const data  = this._raw.data.filter(x => x.category === 'killer');
+        for (let i = 0; i < data.length; i++) {
+            const item = data[i];
+            result[item.key] = item.value;
+        }
+        return result;
+    }
+    /**
+     * Survivor Stats
+     * @returns Lifetime stats of the player
+     */
+     survivor(){
+        const result = {}
+        const data  = this._raw.data.filter(x => x.category === 'survivor');
+        for (let i = 0; i < data.length; i++) {
+            const item = data[i];
+            result[item.key] = item.value;
+        }
+        return result;
     }
 
 
@@ -94,12 +127,10 @@ class API {
      */
     info() { 
         const result = {};
-        const platform = this._raw.v2.data.platformInfo;
+        const { steamID } = this._raw.response.playerstats;
 
-        result[ 'platform' ] = platform.platformSlug;
-        result[ 'steamid' ]  = platform.platformUserId;
-        result[ 'name' ]     = platform.platformUserHandle;
-        result[ 'avatar' ]   = platform.avatarUrl;
+        result[ 'platform' ] = 'Steam';
+        result[ 'id' ]  = steamID;
 
         return result;
     }
