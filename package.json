@@ -1,0 +1,35 @@
+{
+  "name": "deadbydaylight.js",
+  "version": "1.0.0",
+  "description": "Wrapper for CSGO stats.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iFraan/deadbydaylight.js.git"
+  },
+  "keywords": [
+    "dbd-api",
+    "dbd",
+    "dead by daylight",
+    "stats",
+    "deadbydaylight.js",
+    "api",
+    "valve",
+    "steam",
+    "meg",
+    "deadbydaylight",
+    "wrapper"
+  ],
+  "author": "ifraan_",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/iFraan/deadbydaylight.js/issues"
+  },
+  "homepage": "https://github.com/iFraan/deadbydaylight.js#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
