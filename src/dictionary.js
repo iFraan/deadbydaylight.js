@@ -188,4 +188,16 @@ module.exports = {
         category: 'survivor',
         transform: (value) => value
     },
+    DBD_DLC7_Slasher_Stat2: {
+        name: 'Obsessions sacrificed',
+        key: 'survivors_sacrificed_obsession',
+        category: 'killer',
+        transform: (value) => value
+    },
+    DBD_DLC8_Slasher_Stat2: {
+        name: 'Survivors killed/sacrificed during endgame collapse',
+        key: 'survivors_sacrificed_during_endgame',
+        category: 'killer',
+        transform: (value) => value
+    },
 }
