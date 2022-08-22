@@ -97,7 +97,7 @@ class API {
      * Killer Stats
      * @returns Lifetime stats of the player
      */
-     killer(){
+    killer(){
         const result = {}
         const data  = this._raw.data.filter(x => x.category === 'killer');
         for (let i = 0; i < data.length; i++) {
@@ -110,7 +110,7 @@ class API {
      * Survivor Stats
      * @returns Lifetime stats of the player
      */
-     survivor(){
+    survivor(){
         const result = {}
         const data  = this._raw.data.filter(x => x.category === 'survivor');
         for (let i = 0; i < data.length; i++) {
@@ -119,6 +119,16 @@ class API {
         }
         return result;
     }
+
+    /**
+     * Compiled data
+     * @returns compiled data
+     */
+    data(){
+        return this._raw.data;
+    }
+
+
 
 
     /**

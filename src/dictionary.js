@@ -97,4 +97,35 @@ module.exports = {
         category: 'userinfo',
         transform: (value) => value
     },
+    /* here we go weird names */
+    DBD_DLC6_Slasher_Stat2: {
+        name: 'Hooked survivors in the basement',
+        key: 'hooks_in_the_basement',
+        category: 'killer',
+        transform: (value) => value
+    },
+    DBD_Chapter18_Slasher_Stat2: {
+        name: 'Hooked survivors during endgame collapse',
+        key: 'hooks_during_endgame',
+        category: 'killer',
+        transform: (value) => value
+    },
+    DBD_Chapter20_Slasher_Stat2: {
+        name: 'Hooked survivors before a single generator is repaired',
+        key: 'hooks_before_gens',
+        category: 'killer',
+        transform: (value) => value
+    },
+    DBD_Chapter21_Slasher_Stat2: {
+        name: 'Hooked +3 survivors in the basement',
+        key: 'hooks_plus3_survivors_in_the_basement',
+        category: 'killer',
+        transform: (value) => value
+    },
+    DBD_Chapter13_Slasher_Stat1: {
+        name: 'Hatches closed',
+        key: 'hatches_closed',
+        category: 'killer',
+        transform: (value) => value
+    },
 }

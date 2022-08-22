@@ -1,5 +1,8 @@
 
-const ranks = {}
+const ranks = {
+    
+}
+
 
 module.exports = {
     ranks
