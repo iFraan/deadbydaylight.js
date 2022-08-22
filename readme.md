@@ -29,7 +29,7 @@ You must call **API.fetchUser** before using any other method.
 | stats | lifeline baseline stats |
 | killer | killer stats |
 | survivor | survivor stats |
-| raw | returns compiled data |
+| data | returns compiled data |
 
 This module supports either
 * SteamID
@@ -67,7 +67,15 @@ try {
 	*/
 	console.log('Killer:', user.killer())
 	/*
-	Killer: { survivors_killed: 6, survivors_sacrificed: 203 }
+	Killer: {
+		survivors_killed: 6,
+		survivors_sacrificed: 203,
+		hatches_closed: 20,
+		hooks_during_endgame: 37,
+		hooks_before_gens: 62,
+		hooks_in_the_basement: 61,
+		hooks_plus3_survivors_in_the_basement: 5
+	}
 	*/
 	console.log('Survivor:', user.survivor())
 	/*
@@ -81,6 +89,29 @@ try {
 		unhooks_post_exit: 20,
 		escapes_through_hatch: 18
 	}
+	*/
+	console.log('Data: ', user.data())	
+	/*
+	Data: [
+	{
+		key: 'killer_rank',
+		name: 'Killer Rank',
+		category: 'userinfo',
+		value: 0
+	},
+	{
+		key: 'survivor_rank',
+		name: 'Survivor Rank',
+		category: 'userinfo',
+		value: 7
+	},
+	{
+		key: 'survivors_killed',
+		name: 'Survivors Killed (mori)',
+		category: 'killer',
+		value: 6
+	},
+	...
 	*/
 	
 } catch (e) {
