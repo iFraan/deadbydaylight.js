@@ -1,7 +1,7 @@
 {
   "name": "deadbydaylight.js",
-  "version": "0.0.7",
-  "description": "Wrapper for CSGO stats.",
+  "version": "0.0.8",
+  "description": "Wrapper for Dead by Daylight stats.",
   "main": "index.js",
   "scripts": {
     "test": "test.js"
@@ -21,7 +21,8 @@
     "steam",
     "meg",
     "deadbydaylight",
-    "wrapper"
+    "wrapper",
+    "steam-web-api"
   ],
   "author": "ifraan_",
   "license": "GPL-3.0",
