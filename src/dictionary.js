@@ -1,17 +1,20 @@
 /* name the stats (ant work) */
 
+const { getRank } = require('./Utils');
+
+
 module.exports = {
     DBD_KillerSkulls: {
         name: 'Killer Rank',
         key: 'killer_rank',
         category: 'userinfo',
-        transform: (value) => value
+        transform: (value) => getRank(value),
     },
     DBD_CamperSkulls: {
         name: 'Survivor Rank',
         key: 'survivor_rank',
         category: 'userinfo',
-        transform: (value) => value
+        transform: (value) => getRank(value),
     },
     DBD_KilledCampers: {
         name: 'Survivors Killed (mori)',
@@ -165,7 +168,7 @@ module.exports = {
         transform: (value) => value
     },
     DBD_DLC9_Camper_Stat1: {
-        name: 'Attacks evaded by vaulting',
+        name: 'Attacks evaded by vaulting', 
         key: 'vaults_attacks_evaded',
         category: 'survivor',
         transform: (value) => value
