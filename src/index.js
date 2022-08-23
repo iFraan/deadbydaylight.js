@@ -69,13 +69,14 @@ class API {
         try {
             const [isVanity, SteamID] = await checkIfVanity(username);
             INSTANCE._raw.isVanity = isVanity;
-            INSTANCE._raw.response = await fetch(PlayerStatsURL.replace('{SteamID}', isVanity ? SteamID : username))
-            INSTANCE._raw.data = transformResponse(INSTANCE._raw.response.playerstats.stats)
+            INSTANCE._raw.response = await fetch(PlayerStatsURL.replace('{SteamID}', isVanity ? SteamID : username));
+            INSTANCE._raw.data = transformResponse(INSTANCE._raw.response.playerstats.stats);
         } catch (e) {
             if (e?.status == 403) throw new Error('Invalid API Key provided. Please go to https://steamcommunity.com/dev and request one.');
             if (e?.status == 500) throw new Error('Internal Server Error. Probably the SteamID requested doesn\'t exists.');
             /* if other */
-            throw new Error(`${e.status} ${e.statusText} | ${e.data} | ${e.message}`);
+            throw new Error(e)
+            // throw new Error(`${e?.status} ${e?.statusText} | ${e?.data} | ${e?.message}`);
         }
         return INSTANCE;
     }
