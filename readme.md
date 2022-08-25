@@ -29,7 +29,7 @@ You must call **API.fetchUser** before using any other method.
 | stats | lifeline baseline stats |
 | killer | killer stats |
 | survivor | survivor stats |
-| data | returns compiled data |
+| data | returns compiled data as an array with categories |
 
 This module supports either
 * SteamID
@@ -57,12 +57,14 @@ try {
 	console.log('Stats:', user.stats())
 	/*
 	Stats: {
-		killer_rank: 0,
-		survivor_rank: 7,
+		killer_rank: { rank_name: 'Ash IV', rank_peps: 0, rank_max_peps: 3 },
+		survivor_rank: { rank_name: 'Ash II', rank_peps: 3, rank_max_peps: 4 },
 		bloodweb_max_level: 50,
-		bloodweb_total_points_spended: 10099098,
+		bloodweb_total_points_spended: 10201385,
 		bloodweb_max_points_in_one_category: 890000,
-		peps_unlocked: 130
+		max_prestige_level: 4,
+		peps_unlocked: 132,
+		items_depleted: 33
 	}
 	*/
 	console.log('Killer:', user.killer())
@@ -70,24 +72,36 @@ try {
 	Killer: {
 		survivors_killed: 6,
 		survivors_sacrificed: 203,
+		survivors_sacrificed_obsession: 51,
+		survivors_sacrificed_during_endgame: 51,
 		hatches_closed: 20,
+		hooks_in_the_basement: 61,
 		hooks_during_endgame: 37,
 		hooks_before_gens: 62,
-		hooks_in_the_basement: 61,
 		hooks_plus3_survivors_in_the_basement: 5
 	}
 	*/
 	console.log('Survivor:', user.survivor())
 	/*
 	Survivor: {
-		generators_done: 454.77099609375,
-		healing_done: 137.81561279296875,
-		escapes_in_dying_state: 10,
+		generators_done: 460.8564758300781,
+		generators_broken_repaired: 84,
 		escapes: 84,
-		skill_checks: 2474,
-		unhooks: 235,
+		escapes_in_dying_state: 10,
+		escapes_through_hatch: 18,
+		skill_checks: 2685,
+		unhooks: 242,
 		unhooks_post_exit: 20,
-		escapes_through_hatch: 18
+		vaults_done: 201,
+		chests_opened: 63,
+		chests_opened_in_basement: 10,
+		gates_opened: 56,
+		vaults_attacks_evaded: 19,
+		healing_done: 147.92123413085938,
+		healing_being_injured: 3.393465042114258,
+		healing_being_obsession: 18.265979766845703,
+		healing_while_rest_is_injured: 19.342018127441406,
+		chase_escape_by_pallet: 2
 	}
 	*/
 	console.log('Data: ', user.data())	

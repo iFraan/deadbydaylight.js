@@ -1,6 +1,6 @@
 {
   "name": "deadbydaylight.js",
-  "version": "0.0.81",
+  "version": "0.0.85",
   "description": "Wrapper for Dead by Daylight stats.",
   "main": "index.js",
   "scripts": {
