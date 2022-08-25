@@ -203,4 +203,16 @@ module.exports = {
         category: 'killer',
         transform: (value) => value
     },
+    DBD_BloodwebMaxPrestigeLevel: {
+        name: 'Max prestige level',
+        key: 'max_prestige_level',
+        category: 'userinfo',
+        transform: (value) => value
+    },
+    DBD_Chapter17_Camper_Stat1: {
+        name: 'Items Depleted',
+        key: 'items_depleted',
+        category: 'userinfo',
+        transform: (value) => value
+    },
 }
