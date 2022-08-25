@@ -75,9 +75,13 @@ try {
 		survivors_sacrificed_obsession: 51,
 		survivors_sacrificed_during_endgame: 51,
 		hatches_closed: 20,
-		hooks_in_the_basement: 61,
-		hooks_during_endgame: 37,
+		downs_next_to_pallet: 122,
+		downs_exposed_survivors: 53,
+		downs_while_carrying_a_survivor: 2,
+		hooks_while_all_injured: 3,
 		hooks_before_gens: 62,
+		hooks_during_endgame: 37,
+		hooks_in_the_basement: 61,
 		hooks_plus3_survivors_in_the_basement: 5
 	}
 	*/

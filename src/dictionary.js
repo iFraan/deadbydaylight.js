@@ -1,4 +1,4 @@
-/* name the stats (ant work) */
+/* name the stats (ant-like work) */
 
 const { getRank } = require('./Utils');
 
@@ -125,6 +125,12 @@ module.exports = {
         category: 'killer',
         transform: (value) => value
     },
+    DBD_Chapter14_Slasher_Stat1: {
+        name: 'Hooks while all the other survivors are injured',
+        key: 'hooks_while_all_injured',
+        category: 'killer',
+        transform: (value) => value
+    },
     DBD_Chapter13_Slasher_Stat1: {
         name: 'Hatches closed',
         key: 'hatches_closed',
@@ -213,6 +219,24 @@ module.exports = {
         name: 'Items Depleted',
         key: 'items_depleted',
         category: 'userinfo',
+        transform: (value) => value
+    },
+    DBD_Chapter13_Slasher_Stat2: {
+        name: 'Survivors downed next to a pallet',
+        key: 'downs_next_to_pallet',
+        category: 'killer',
+        transform: (value) => value
+    },
+    DBD_Chapter19_Slasher_Stat2: {
+        name: 'Survivors downed while carrying another',
+        key: 'downs_while_carrying_a_survivor',
+        category: 'killer',
+        transform: (value) => value
+    },
+    DBD_Chapter17_Slasher_Stat2: {
+        name: 'Survivors downed with a exposed effect',
+        key: 'downs_exposed_survivors',
+        category: 'killer',
         transform: (value) => value
     },
 }
