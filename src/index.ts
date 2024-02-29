@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GenericStat } from './types/internal';
-import { VanityResponse } from './types/steam';
+import { PlayerStatsResponse, VanityResponse } from './types/steam';
+import { parseResponse } from './utils/internal';
 
 const URLS = {
     Vanity: `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key={TOKEN_STEAM}&vanityurl={VanityID}`,
@@ -16,8 +17,8 @@ const fetchData = (url: string) => new Promise((resolve, reject) => {
 
 })
 
-const checkIfVanity = async (user: string | number, key: string) => {
-    const { response } = (await fetchData(URLS.Vanity.replace('{VanityID}', user.toString()).replace('{TOKEN_STEAM}', key))) as VanityResponse;
+const checkIfVanity = async (user: string, key: string) => {
+    const { response } = (await fetchData(URLS.Vanity.replace('{VanityID}', user).replace('{TOKEN_STEAM}', key))) as VanityResponse;
     return {
         isVanity: response.success == 1,
         SteamID: response.steamid
@@ -26,35 +27,33 @@ const checkIfVanity = async (user: string | number, key: string) => {
 
 class API {
 
-    username: string | number;
+    username: string;
     apiKey: string;
     _raw: {
-        response: {},
-        isVanity: boolean,
-        data: GenericStat[]
+        response?: PlayerStatsResponse,
+        isVanity?: boolean,
+        data?: GenericStat[]
     };
 
-    constructor(username: string | number, apiKey: string) {
+    constructor(username: string, apiKey: string) {
         this.username = username;
         this.apiKey = apiKey;
         this._raw = {}
     }
 
-    static async fetchUser(username: string | number, apiKey: string) {
+    static async fetchUser(username: string, apiKey: string) {
         if (typeof username == 'undefined') throw new Error('You gotta provide an username.');
         if (typeof apiKey == 'undefined') throw new Error('You gotta provide an Steam API key.');
         const INSTANCE = new API(username, apiKey);
         try {
             const { isVanity, SteamID } = await checkIfVanity(username, apiKey);
             INSTANCE._raw.isVanity = isVanity;
-            INSTANCE._raw.response = await fetchData(PlayerStatsURL.replace('{SteamID}', isVanity ? SteamID : username));
-            INSTANCE._raw.data = transformResponse(INSTANCE._raw.response.playerstats.stats);
+            INSTANCE._raw.response = (await fetchData(URLS.PlayerStats.replace('{SteamID}', isVanity ? SteamID : username).replace('{TOKEN_STEAM}', apiKey))) as PlayerStatsResponse;
+            INSTANCE._raw.data = parseResponse(INSTANCE._raw.response.playerstats.stats);
         } catch (e) {
             if (e?.status == 403) throw new Error('Invalid API Key provided. Please go to https://steamcommunity.com/dev and request one.');
             if (e?.status == 500) throw new Error('Internal Server Error. Probably the SteamID requested doesn\'t exists.');
-            /* if other */
             throw new Error(e)
-            // throw new Error(`${e?.status} ${e?.statusText} | ${e?.data} | ${e?.message}`);
         }
         return INSTANCE;
     }
