@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GenericStat, UserStats } from './types/internal';
+import { GenericStat, KillerStats, SurvivorStats, UserStats } from './types/internal';
 import { PlayerStatsResponse, VanityResponse } from './types/steam';
 import { parseResponse } from './utils/internal';
 
@@ -66,43 +66,28 @@ class API {
         }
         return result;
     }
-    /**
-     * Killer Stats
-     * @returns Lifetime stats of the player
-     */
+
     killer() {
-        const result = {}
+        const result = {} as KillerStats;
         const data = this._raw.data.filter(x => x.category === 'killer');
-        for (let i = 0; i < data.length; i++) {
-            const item = data[i];
-            result[item.key] = item.value;
-        }
-        return result;
-    }
-    /**
-     * Survivor Stats
-     * @returns Lifetime stats of the player
-     */
-    survivor() {
-        const result = {}
-        const data = this._raw.data.filter(x => x.category === 'survivor');
-        for (let i = 0; i < data.length; i++) {
-            const item = data[i];
+        for (const item of data) {
             result[item.key] = item.value;
         }
         return result;
     }
 
-    /**
-     * Compiled data
-     * @returns compiled data
-     */
+    survivor() {
+        const result = {} as SurvivorStats;
+        const data = this._raw.data.filter(x => x.category === 'survivor');
+        for (const item of data) {
+            result[item.key] = item.value;
+        }
+        return result;
+    }
+
     data() {
         return this._raw.data;
     }
-
-
-
 
     /**
      * Get userinfo from the platform
