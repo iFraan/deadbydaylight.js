@@ -3,7 +3,7 @@ export type DictionaryStats = {
         name: string,
         key: string | null,
         category: string | null,
-        transform?: (value: number) => unknown
+        transform?: (value: number) => GenericStat['value'];
     };
 }
 
