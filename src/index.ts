@@ -1,15 +1,14 @@
-const axios = require('axios');
-const constants = {
-    API_KEY: ''
-};
-const VanityURL = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key={TOKEN_STEAM}&vanityurl={VanityID}`;
-const PlayerStatsURL = `http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=381210&key={TOKEN_STEAM}&steamid={SteamID}`;
-const STATS = require('./dictionary');
+import axios from 'axios';
+import { GenericStat } from './types/internal';
+import { VanityResponse } from './types/steam';
 
+const URLS = {
+    Vanity: `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key={TOKEN_STEAM}&vanityurl={VanityID}`,
+    PlayerStats: `http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=381210&key={TOKEN_STEAM}&steamid={SteamID}`,
+} as const;
 
-const fetchData = (url) => new Promise((resolve, reject) => {
-
-    axios.get(url.replace('{TOKEN_STEAM}', constants.API_KEY)).then(res => {
+const fetchData = (url: string) => new Promise((resolve, reject) => {
+    axios.get(url).then(res => {
         resolve(res.data)
     }).catch(err => {
         reject(err.response)
@@ -17,56 +16,36 @@ const fetchData = (url) => new Promise((resolve, reject) => {
 
 })
 
-const checkIfVanity = async (user) => {
-    const { response } = await fetchData(VanityURL.replace('{VanityID}', user));
-    return [response.success == 1, response.steamid]
-};
-
-const transformResponse = (response) => {
-    const result = []
-    const keys = (response)
-    for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        const stat = STATS[key.name];
-        result.push({
-            key: stat?.key || key.name,
-            name: stat?.name || '',
-            category: stat?.category || '',
-            value: stat?.transform(key.value) || key.value,
-        })
+const checkIfVanity = async (user: string | number, key: string) => {
+    const { response } = (await fetchData(URLS.Vanity.replace('{VanityID}', user.toString()).replace('{TOKEN_STEAM}', key))) as VanityResponse;
+    return {
+        isVanity: response.success == 1,
+        SteamID: response.steamid
     }
-    return result;
-}
-
+};
 
 class API {
 
-    /**
-     * Use API.fetchUser instead.
-     * @param {string} username 
-     * @param {string} apiKey 
-     * @private // idk if it does something outside of typescript, but there it is
-     */
-    constructor(username, apiKey) {
+    username: string | number;
+    apiKey: string;
+    _raw: {
+        response: {},
+        isVanity: boolean,
+        data: GenericStat[]
+    };
+
+    constructor(username: string | number, apiKey: string) {
         this.username = username;
-        constants.API_KEY = apiKey;
-        this._raw = {
-            response: {}
-        }
+        this.apiKey = apiKey;
+        this._raw = {}
     }
 
-    /**
-     * Initialize the wrapper
-     * @param {string} apiKey 
-     * @param {string} username SteamID64, Steam VainityURL
-     * @returns API instance
-     */
-    static async fetchUser(username, apiKey) {
-        const INSTANCE = new API(username, apiKey);
+    static async fetchUser(username: string | number, apiKey: string) {
         if (typeof username == 'undefined') throw new Error('You gotta provide an username.');
         if (typeof apiKey == 'undefined') throw new Error('You gotta provide an Steam API key.');
+        const INSTANCE = new API(username, apiKey);
         try {
-            const [isVanity, SteamID] = await checkIfVanity(username);
+            const { isVanity, SteamID } = await checkIfVanity(username, apiKey);
             INSTANCE._raw.isVanity = isVanity;
             INSTANCE._raw.response = await fetchData(PlayerStatsURL.replace('{SteamID}', isVanity ? SteamID : username));
             INSTANCE._raw.data = transformResponse(INSTANCE._raw.response.playerstats.stats);
