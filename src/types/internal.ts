@@ -67,3 +67,8 @@ export type SurvivorStats = {
     healing_while_rest_is_injured: number;
     chase_escape_by_pallet: number;
 }
+
+export type Userinfo = {
+    platform: 'Steam',
+    id: string,
+}

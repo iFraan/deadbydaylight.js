@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GenericStat, KillerStats, SurvivorStats, UserStats } from './types/internal';
+import { GenericStat, KillerStats, SurvivorStats, UserStats, Userinfo } from './types/internal';
 import { PlayerStatsResponse, VanityResponse } from './types/steam';
 import { parseResponse } from './utils/internal';
 
@@ -89,12 +89,8 @@ class API {
         return this._raw.data;
     }
 
-    /**
-     * Get userinfo from the platform
-     * @returns userinfo
-     */
     info() {
-        const result = {};
+        const result = {} as Userinfo;
         const { steamID } = this._raw.response.playerstats;
 
         result['platform'] = 'Steam';
