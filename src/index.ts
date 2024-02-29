@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GenericStat } from './types/internal';
+import { GenericStat, UserStats } from './types/internal';
 import { PlayerStatsResponse, VanityResponse } from './types/steam';
 import { parseResponse } from './utils/internal';
 
@@ -58,15 +58,10 @@ class API {
         return INSTANCE;
     }
 
-    /**
-     * Lifetime Stats
-     * @returns Lifetime stats of the player
-     */
     stats() {
-        const result = {}
+        const result = {} as UserStats;
         const data = this._raw.data.filter(x => x.category === 'userinfo');
-        for (let i = 0; i < data.length; i++) {
-            const item = data[i];
+        for (const item of data) {
             result[item.key] = item.value;
         }
         return result;
