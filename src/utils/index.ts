@@ -1,6 +1,6 @@
 import { ranks } from '../constants';
 
-const getRankName = (rank?: number) => {
+export const getRankName = (rank?: number): string => {
     if (!rank) return 'Ash IV';
     for (const key in ranks) {
         const peps = Number(key);
@@ -11,20 +11,18 @@ const getRankName = (rank?: number) => {
     return 'Unranked';
 }
 
-const getRank = (rank) => {
+export const getRank = (rank: number) => {
     const name = getRankName(rank);
-    const pepIndex = Object.values(ranks).findIndex(x => x === name);
-    const keys = Object.keys(ranks);
+
+    const rankIndex = Object.values(ranks).findIndex(x => x === name);
+    const rankKeys = Object.keys(ranks).map(Number);
+
+    const currentRank = rankKeys[rankIndex];
+    const previousRank = rankIndex > 0 ? rankKeys[rankIndex - 1] : 0;
 
     return {
         rank_name: name,
-        rank_peps: (rank - keys[pepIndex - 1]) || 0,
-        rank_max_peps: (keys[pepIndex] - (keys[pepIndex - 1] || 0)) || 0,
-    };
-}
-
-
-module.exports = {
-    getRankName,
-    getRank
+        rank_peps: rank - previousRank,
+        rank_max_peps: currentRank - previousRank
+    }
 }
