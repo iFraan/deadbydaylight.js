@@ -2,9 +2,16 @@
   "name": "deadbydaylight.js",
   "version": "0.1.0",
   "description": "Wrapper for Dead by Daylight stats.",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "test.js"
+    "test": "ts-node test.ts",
+    "build": "tsup",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
