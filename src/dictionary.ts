@@ -1,6 +1,6 @@
 /* name the stats (ant-like work) */
 import { DictionaryStats } from "./types/internal";
-import { getRank } from "./utils";
+import { getRank } from "./utils/ranks";
 
 export const dictionary: DictionaryStats = {
     DBD_KillerSkulls: {

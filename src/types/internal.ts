@@ -6,3 +6,10 @@ export type DictionaryStats = {
         transform?: (value: number) => unknown
     };
 }
+
+export type GenericStat = {
+    key: string,
+    name: string,
+    category: string,
+    value: number | string | any,
+}
