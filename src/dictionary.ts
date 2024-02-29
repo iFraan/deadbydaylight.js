@@ -1,9 +1,8 @@
 /* name the stats (ant-like work) */
+import { DictionaryStats } from "./types/internal";
+import { getRank } from "./utils/ranks";
 
-const { getRank } = require('./Utils');
-
-
-module.exports = {
+export const dictionary: DictionaryStats = {
     DBD_KillerSkulls: {
         name: 'Killer Rank',
         key: 'killer_rank',
@@ -174,7 +173,7 @@ module.exports = {
         transform: (value) => value
     },
     DBD_DLC9_Camper_Stat1: {
-        name: 'Attacks evaded by vaulting', 
+        name: 'Attacks evaded by vaulting',
         key: 'vaults_attacks_evaded',
         category: 'survivor',
         transform: (value) => value

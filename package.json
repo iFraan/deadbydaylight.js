@@ -1,10 +1,17 @@
 {
   "name": "deadbydaylight.js",
-  "version": "0.0.85",
+  "version": "0.1.0",
   "description": "Wrapper for Dead by Daylight stats.",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "test.js"
+    "test": "ts-node test.ts",
+    "build": "tsup",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +38,11 @@
   },
   "homepage": "https://github.com/iFraan/deadbydaylight.js#readme",
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
   }
 }

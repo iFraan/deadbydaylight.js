@@ -1,9 +1,10 @@
-const { API } = require('./index');
+import { API } from "./src/index";
+const token = 'your-steam-token';
 
-m = (async () => {
+const test = async () => {
 
     try {
-        const user = await API.fetchUser('iFraan_', 'yourApiKey')
+        const user = await API.fetchUser('iFraan_', token)
         console.log('User:', user.info())
         console.log('Stats:', user.stats())
         console.log('Killer:', user.killer())
@@ -13,6 +14,6 @@ m = (async () => {
         console.log(e)
     }
 
-})
+}
 
-m()
+test();

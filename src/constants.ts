@@ -1,4 +1,4 @@
-const ranks = {
+export const ranks = {
     3: 'Ash IV',
     6: 'Ash III',
     10: 'Ash II',
@@ -19,8 +19,4 @@ const ranks = {
     80: 'Iridescent III',
     85: 'Iridescent II',
     90: 'Iridescent I',
-}
-
-module.exports = {
-    ranks
-}
+} as const;
