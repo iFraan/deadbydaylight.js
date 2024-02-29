@@ -121,6 +121,6 @@ class API {
     get raw() { return this._raw; }
 }
 
-module.exports = {
-    API,
+export {
+    API
 }
