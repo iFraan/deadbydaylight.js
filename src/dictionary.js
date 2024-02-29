@@ -1,6 +1,6 @@
 /* name the stats (ant-like work) */
 
-const { getRank } = require('./Utils');
+const { getRank } = require('./utils');
 
 
 module.exports = {
@@ -174,7 +174,7 @@ module.exports = {
         transform: (value) => value
     },
     DBD_DLC9_Camper_Stat1: {
-        name: 'Attacks evaded by vaulting', 
+        name: 'Attacks evaded by vaulting',
         key: 'vaults_attacks_evaded',
         category: 'survivor',
         transform: (value) => value
