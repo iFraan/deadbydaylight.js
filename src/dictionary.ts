@@ -1,9 +1,8 @@
 /* name the stats (ant-like work) */
 
-const { getRank } = require('./utils');
+import { getRank } from "./utils";
 
-
-module.exports = {
+export = {
     DBD_KillerSkulls: {
         name: 'Killer Rank',
         key: 'killer_rank',
