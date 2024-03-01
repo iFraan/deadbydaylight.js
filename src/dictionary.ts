@@ -80,6 +80,16 @@ export const dictionary: DictionaryStats = {
         key: 'killer_perfect_games',
         category: 'killer',
     },
+    DBD_CamperFullLoadout: {
+        name: 'Trials with full loadout',
+        key: 'survivor_full_loadout',
+        category: 'survivor',
+    },
+    DBD_SlasherFullLoadout: {
+        name: 'Trials with full loadout',
+        key: 'killer_full_loadout',
+        category: 'killer',
+    },
     DBD_BloodwebMaxLevel: {
         name: 'Bloodweb Max Level',
         key: 'bloodweb_max_level',
