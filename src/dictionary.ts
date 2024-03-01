@@ -267,6 +267,11 @@ export const dictionary: DictionaryStats = {
         key: 'chases_won_after_hit',
         category: 'survivor',
     },
+    DBD_Chapter24_Camper_Stat1: {
+        name: 'Chases won by hiding in a locker',
+        key: 'chases_won_hiding_in_locker',
+        category: 'survivor',
+    },
     DBD_Chapter15_Camper_Stat1: {
         name: 'Survivors healed that were dying',
         key: 'heals_downed_friend',
