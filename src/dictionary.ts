@@ -70,6 +70,16 @@ export const dictionary: DictionaryStats = {
         key: 'unhooks_post_exit',
         category: 'survivor',
     },
+    DBD_CamperMaxScoreByCategory: {
+        name: 'Perfect games (+4000 points in each category)',
+        key: 'survivor_perfect_games',
+        category: 'survivor',
+    },
+    DBD_SlasherMaxScoreByCategory: {
+        name: 'Perfect games (+4000 points in each category)',
+        key: 'killer_perfect_games',
+        category: 'killer',
+    },
     DBD_BloodwebMaxLevel: {
         name: 'Bloodweb Max Level',
         key: 'bloodweb_max_level',
