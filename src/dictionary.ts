@@ -50,6 +50,11 @@ export const dictionary: DictionaryStats = {
         key: 'escapes_through_hatch',
         category: 'survivor',
     },
+    DBD_HookedAndEscape: {
+        name: 'Escapes after unhooking yourself',
+        key: 'escapes_unhook_self',
+        category: 'survivor',
+    },
     DBD_SkillCheckSuccess: {
         name: 'Skill Checks',
         key: 'skill_checks',
@@ -161,7 +166,8 @@ export const dictionary: DictionaryStats = {
         key: 'chests_opened',
         category: 'survivor',
     },
-    DBD_Event1_Stat2: { // naming makes no sense whatsoever
+    DBD_Event1_Stat2: {
+        // naming makes no sense whatsoever
         name: 'Chests opened in the basement',
         key: 'chests_opened_in_basement',
         category: 'survivor',
@@ -201,4 +207,4 @@ export const dictionary: DictionaryStats = {
         key: 'downs_exposed_survivors',
         category: 'killer',
     },
-}
+};
