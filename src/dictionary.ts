@@ -191,6 +191,11 @@ export const dictionary: DictionaryStats = {
         key: 'chase_escape_by_pallet',
         category: 'survivor',
     },
+    DBD_Chapter19_Camper_Stat2: {
+        name: 'Basic attacks or projectiles dodged',
+        key: 'attacks_dodged',
+        category: 'survivor',
+    },
     DBD_DLC7_Camper_Stat1: {
         name: 'Chests opened',
         key: 'chests_opened',
@@ -245,6 +250,31 @@ export const dictionary: DictionaryStats = {
     DBD_HitNearHook: {
         name: 'Protection hits taken',
         key: 'protection_hits',
+        category: 'survivor',
+    },
+    DBD_Chapter14_Camper_Stat1: {
+        name: 'Protection hits taken while another survivor is being carried',
+        key: 'protection_hits_while_friend_in_killer',
+        category: 'survivor',
+    },
+    DBD_Chapter12_Camper_Stat1: {
+        name: "Escaped from killer's grasp",
+        key: 'escaped_from_killer_hands',
+        category: 'survivor',
+    },
+    DBD_Chapter22_Camper_Stat1: {
+        name: 'Chases won after getting hit',
+        key: 'chases_won_after_hit',
+        category: 'survivor',
+    },
+    DBD_Chapter15_Camper_Stat1: {
+        name: 'Survivors healed that were dying',
+        key: 'heals_downed_friend',
+        category: 'survivor',
+    },
+    DBD_Chapter12_Camper_Stat2: {
+        name: 'Escapes through hatch while crawling',
+        key: 'escapes_hatch_crawling',
         category: 'survivor',
     },
     DBD_LastSurvivorGeneratorEscape: {
