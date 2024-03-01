@@ -55,6 +55,16 @@ export const dictionary: DictionaryStats = {
         key: 'escapes_unhook_self',
         category: 'survivor',
     },
+    DBD_CamperNewItem: {
+        name: 'Escapes with new item',
+        key: 'escapes_with_new_item',
+        category: 'survivor',
+    },
+    DBD_CamperEscapeWithItemFrom: {
+        name: "Escapes with another survivor's item",
+        key: 'escapes_with_borrowed_item',
+        category: 'survivor',
+    },
     DBD_SkillCheckSuccess: {
         name: 'Skill Checks',
         key: 'skill_checks',
