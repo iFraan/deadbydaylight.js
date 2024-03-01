@@ -237,4 +237,29 @@ export const dictionary: DictionaryStats = {
         key: 'downs_exposed_survivors',
         category: 'killer',
     },
+    DBD_DLC3_Camper_Stat1: {
+        name: 'Hex totems cleansed',
+        key: 'hex_totems_cleansed',
+        category: 'survivor',
+    },
+    DBD_HitNearHook: {
+        name: 'Protection hits taken',
+        key: 'protection_hits',
+        category: 'survivor',
+    },
+    DBD_LastSurvivorGeneratorEscape: {
+        name: 'Escapes after completing the last generator as the last survivor',
+        key: 'escapes_after_generator_as_last',
+        category: 'survivor',
+    },
+    DBD_Camper9_Stat2: {
+        name: 'Escapes while injured for over 50% of trial',
+        key: 'escapes_while_injured_half_trial',
+        category: 'survivor',
+    },
+    DBD_DLC8_Camper_Stat1: {
+        name: 'Escapes after being downed only once',
+        key: 'escapes_with_only_one_down',
+        category: 'survivor',
+    },
 };
