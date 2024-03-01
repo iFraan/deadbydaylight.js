@@ -292,4 +292,14 @@ export const dictionary: DictionaryStats = {
         key: 'escapes_with_only_one_down',
         category: 'survivor',
     },
+    DBD_Chapter23_Camper_Stat1: {
+        name: 'Survivors affected with speed increase',
+        key: 'survivors_boost_speed',
+        category: 'survivor',
+    },
+    DBD_Chapter23_Camper_Stat2: {
+        name: 'Injured survivors that found you',
+        key: 'survivors_injured_found_you',
+        category: 'survivor',
+    },
 };
