@@ -1,6 +1,5 @@
 <div align="center">
     <h1>🎮 deadbydaylight.js</h1>
-    
     <p>
         <a href="https://www.codefactor.io/repository/github/ifraan/deadbydaylight.js"><img src="https://www.codefactor.io/repository/github/ifraan/deadbydaylight.js/badge" alt="CodeFactor" /></a>
         <a href="https://www.npmjs.com/package/deadbydaylight.js"><img src="https://badgen.net/npm/v/deadbydaylight.js?color=blue" alt="NPM-Version"/></a>
@@ -8,7 +7,6 @@
         <a href="https://github.com/iFraan/deadbydaylight.js"><img src="https://badgen.net/github/stars/iFraan/deadbydaylight.js?color=yellow" alt="Github Stars"/></a>
         <a href="https://github.com/iFraan/deadbydaylight.js/issues"><img src="https://badgen.net/github/issues/iFraan/deadbydaylight.js?color=green" alt="Issues"/></a>
     </p>
-    
     <h3>📊 A public wrapper for <strong>Dead by Daylight</strong> stats</h3>
     <p><em>Powered by the official Steam API</em></p>
 </div>
